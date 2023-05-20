@@ -15,11 +15,11 @@ export const meta: V2_MetaFunction = () => {
 }
 
 const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: 'one' } },
-  { id: '4', position: { x: 200, y: 0 }, data: { label: 'four' } },
+  { id: '1', type: 'icon', position: { x: 0, y: 0 }, data: { label: 'one' } },
+  { id: '4', type: 'icon', position: { x: 200, y: 0 }, data: { label: 'four' } },
   { id: '5', type: 'icon', position: { x: 450, y: 0 }, data: { label: 'five' } },
-  { id: '2', position: { x: 0, y: 100 }, data: { label: 'two' } },
-  { id: '3', type: 'alpha', position: { x: 0, y: 200 }, data: { label: 'three' } },
+  { id: '2', type: 'icon', position: { x: 0, y: 100 }, data: { label: 'two' } },
+  { id: '3', type: 'icon', position: { x: 0, y: 200 }, data: { label: 'three' } },
 ]
 
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }]
