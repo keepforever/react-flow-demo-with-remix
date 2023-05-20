@@ -6,19 +6,23 @@ import { useCallback } from 'react'
 import ReactFlow, { MiniMap, Controls, Background, useNodesState, useEdgesState, addEdge } from 'reactflow'
 import type { BackgroundVariant } from 'reactflow'
 import styles from 'reactflow/dist/style.css'
-
-const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
-  { id: '2', position: { x: 0, y: 100 }, data: { label: '2' } },
-  { id: '3', position: { x: 0, y: 200 }, data: { label: '2' } },
-]
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }]
+import { reactFlowNodeTypes } from '~/components/react-flow-node-types'
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }]
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: 'React Flow Demo' }]
 }
+
+const initialNodes = [
+  { id: '1', position: { x: 0, y: 0 }, data: { label: 'one' } },
+  { id: '4', position: { x: 200, y: 0 }, data: { label: 'four' } },
+  { id: '5', type: 'icon', position: { x: 450, y: 0 }, data: { label: 'five' } },
+  { id: '2', position: { x: 0, y: 100 }, data: { label: 'two' } },
+  { id: '3', type: 'alpha', position: { x: 0, y: 200 }, data: { label: 'three' } },
+]
+
+const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }]
 
 export default function ReactFlowDemo() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
@@ -36,6 +40,7 @@ export default function ReactFlowDemo() {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
+          nodeTypes={reactFlowNodeTypes}
         >
           <Controls />
           <MiniMap />
